@@ -34,12 +34,12 @@ dropdb:
 	docker exec -it customer-tracker-postgres12 dropdb customer_tracker
 
 # Create the initial schema's tables, indexes, and relationships.
-# This uses the migration files in '.\src\database\migration'
+# This uses the migrations files in '.\src\database\migrations'
 migrateup:
 	migrate -path db/migrations -database "postgresql://root:secret@localhost:5432/customer_tracker?sslmode=disable" -verbose up
 
 # Undo the creation of the initial schema's tables, indexes, and relationships.
-# This uses the migration files in '.\src\database\migration'
+# This uses the migrations files in '.\src\database\migrations'
 migratedown:
 	migrate -path db/migrations -database "postgresql://root:secret@localhost:5432/customer_tracker?sslmode=disable" -verbose down
 
